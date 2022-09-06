@@ -24,7 +24,40 @@ class ReturController extends Controller
 
     public function store(Request $request)
     {
-        $returns = Retur::create($request->all());
+        // $returns = Retur::create($request->all());
+
+        $rt = json_decode($request->product_id);
+        $product = Product::where('id', $rt->id)->first();
+
+        if ($request->quantity > $product->quantity) {
+            return redirect()->back();
+        } else {
+            $data = Retur::create([
+                'product_id'    => $rt->id,
+                'product_code'  => $rt->product_code,
+                'return'        => $request->return,
+                'price'         => $request->price,
+                'quantity'      => $request->quantity,
+                'desc'          => $request->desc,
+                'date'          => $request->date,
+            ]);
+    
+    
+            $data->save();
+    
+           
+    
+            $product->update([
+                
+                'quantity'         => ($product->quantity + $request->quantity) 
+                
+            ]);
+        }
+
+
+
+
+
         return redirect('retur')->with('Success', 'Successful Data added!');
     }
 
@@ -45,6 +78,7 @@ class ReturController extends Controller
         $this->validate($request, [
             'return'              => 'required',
             'price'          => 'required',
+            'quantity'          =>'required',
             'date'             => 'required',
             'desc'              => 'required'
         ]);
@@ -52,6 +86,7 @@ class ReturController extends Controller
         $returns->update([
             'return'              => $request->return,
             'price'          => $request->price,
+            'quantity'      =>$request->quantity,
             'date'             => $request->date,
             'desc'              => $request->desc
         ]);

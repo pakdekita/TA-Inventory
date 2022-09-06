@@ -48,9 +48,9 @@
                                 <label for="out_code" class="form-label font-weight-bold col-sm-2">
                                     Product Code</label>
                                 <div class="col-sm-10">
-                                <select class="custom-select bg-light border-0 small" name="product_id">
+                                <select class="custom-select bg-light border-0 small" name="product_id" required>
                                 @foreach($returns as $rt)
-                                  <option value="{{$rt->id}}">{{$rt->product_code}}</option>
+                                  <option value='{ "id" : "{{$rt->id}}", "product_code" : "{{$rt->product_code}}" }'>{{$rt->product_code}}</option>
                                 @endforeach
                                 </select>
                                 </div>
@@ -61,28 +61,35 @@
                                     <label for="return" class="form-label font-weight-bold col-sm-2">
                                         Product Return</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="return" class="form-control bg-light border-0 small">
+                                        <input type="text" name="return" class="form-control bg-light border-0 small" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="price" class="form-label font-weight-bold col-sm-2">
                                         Price</label>
                                     <div class="col-sm-10">
-                                        <input type="number" name="price" class="form-control bg-light border-0 small" placeholder="Format: 25000">
+                                        <input type="number" name="price" class="form-control bg-light border-0 small" placeholder="Format: 25000" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="price" class="form-label font-weight-bold col-sm-2">
+                                        Quantity</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" name="quantity" class="form-control bg-light border-0 small" placeholder="Format: 12 Pcs" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="date" class="form-label font-weight-bold col-sm-2">
                                         Return Date</label>
                                     <div class="col-sm-10">
-                                        <input type="date" name="date" class="form-control bg-light border-0 small">
+                                        <input type="date" name="date" class="form-control bg-light border-0 small" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="desc" class="form-label font-weight-bold col-sm-2">
                                         Description</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="desc" class="form-control bg-light border-0 small">
+                                        <input type="text" name="desc" class="form-control bg-light border-0 small" required>
                                     </div>
                                 </div>
                             </div>

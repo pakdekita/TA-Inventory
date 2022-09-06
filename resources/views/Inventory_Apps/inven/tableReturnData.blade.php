@@ -34,6 +34,7 @@
                                     <th>Product Code</th>
                                     <th>Product Return</th>
                                     <th>Price</th>
+                                    <th>Quantity</th>
                                     <th>Return Date</th>
                                     <th>Description</th>
                                     <th>Actions</th>
@@ -45,7 +46,7 @@
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>
                                             <div class="col g-3 mt-3">
-                                                <h6 class="font-weight-bold">{{ $prod->product_code }}</h6>
+                                                <h6 class="font-weight-bold">{{ $retur->product_code }}</h6>
                                             </div>
                                         </td>
                                         <td>
@@ -59,6 +60,11 @@
                                         <td>
                                             <div class="col g-3 mt-3">
                                                 <h6 class="font-weight-bold"> Rp.{{ $retur->price }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col g-3 mt-3">
+                                                <h6 class="font-weight-bold">{{ $retur->quantity }} Pcs</h6>
                                             </div>
                                         </td>
                                         <td>

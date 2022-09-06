@@ -48,21 +48,23 @@
                                 <label for="out_code" class="form-label font-weight-bold col-sm-2">
                                     Product Code</label>
                                 <div class="col-sm-10">
-                                <select class="custom-select bg-light border-0 small" name="product_id">
+                                <select class="custom-select bg-light border-0 small" name="product_id" required>
                                     <option>Select product code</option>
                                 @foreach($outs as $ot)
-                                  <option value="{{$ot->id}}">{{$ot->product_code}}</option>
+                                  <option value='{ "id" : "{{$ot->id}}", "product_code" : "{{$ot->product_code}}" }'>{{$ot->product_code}}</option>
                                 @endforeach
                                 </select>
                                 </div>
                               </div>
                             </div>
+                            
+                                        
                             <div class="align-items-center">
                                 <div class="form-group row">
                                     <label for="productOut" class="form-label font-weight-bold col-sm-2">
                                         Product Out</label>
                                         <div class="col-sm-10">
-                                                <input type="text" name="out" class="form-control bg-light border-0 small">
+                                                <input type="text" name="out" class="form-control bg-light border-0 small" required>
                                         </div>
                                   </div>
                             </div>
@@ -70,35 +72,35 @@
                                     <label for="price" class="form-label font-weight-bold col-sm-2">
                                         Customer</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="customer" class="form-control bg-light border-0 small">
+                                        <input type="text" name="customer" class="form-control bg-light border-0 small" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="price" class="form-label font-weight-bold col-sm-2">
                                         Price</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="price" class="form-control bg-light border-0 small">
+                                        <input type="number" name="price" class="form-control bg-light border-0 small" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="price" class="form-label font-weight-bold col-sm-2">
                                         Quantity</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="quantity" class="form-control bg-light border-0 small">
+                                        <input type="number" max="" name="quantity" class="form-control bg-light border-0 small" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="price" class="form-label font-weight-bold col-sm-2">
                                         Description</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="desc" class="form-control bg-light border-0 small">
+                                        <input type="text" name="desc" class="form-control bg-light border-0 small" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="dat" class="form-label font-weight-bold col-sm-2">
                                         Send Date</label>
                                     <div class="col-sm-10">
-                                        <input type="date" name="date" class="form-control bg-light border-0 small">
+                                        <input type="date" name="date" class="form-control bg-light border-0 small" required>
                                     </div>
                                 </div>
                             </div>

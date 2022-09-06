@@ -29,15 +29,36 @@ class OutController extends Controller
 
     public function store(Request $request)
     {
-        
-        $outs = Out::create($request->all());
+        $pr = json_decode($request->product_id);
+        $product = Product::where('id', $pr->id)->first();
 
-        
+        if ($request->quantity > $product->quantity) {
+            return redirect()->back();
+        } else {
+            $data = Out::create([
+                'product_id'    => $pr->id,
+                'product_code'  => $pr->product_code,
+                'out'           => $request->out,
+                'customer'      => $request->customer,
+                'price'         => $request->price,
+                'quantity'      => $request->quantity,
+                'desc'          => $request->desc,
+                'date'          => $request->date,
+            ]);
+    
+    
+            $data->save();
+    
+           
+    
+            $product->update([
+                
+                'quantity'         => ($product->quantity - $request->quantity) 
+                
+            ]);
+        }
 
-        $outs->save();
         return redirect('out');
-        
-
     }
 
     public function show($id)
@@ -57,7 +78,7 @@ class OutController extends Controller
         
         $this->validate($request, [
             'out'       => 'required',
-            'customer'         => 'required',
+            'customer'  => 'required',
             'price'         => 'required',
             'quantity'         => 'required',
             'desc'         => 'required',
@@ -79,7 +100,15 @@ class OutController extends Controller
 
     public function destroy($id)
     {
+
         $outs = Out::findOrFail($id);
+
+        $product = Product::where('product_code', $outs->product_code)->first();
+        $product->update([
+                
+            'quantity'         => ($product->quantity + $outs->quantity) 
+            
+        ]);
         $outs->delete();
 
         return redirect('out');

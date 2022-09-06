@@ -25,7 +25,7 @@
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                         Total Product</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">34</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$total_products}}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-box fa-2x text-gray-300"></i>
@@ -43,17 +43,15 @@
                     <div class="card border-left-info shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
-                                @foreach ($total_products)
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                     Total Assets</div>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
-                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$total_products}}</div>
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Rp.{{$total}}</div>
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
                                 <div class="col-auto">
                                     <i class="fas fa-regular fa-dollar-sign fa-2x text-gray-300"></i>
                                 </div>
@@ -71,7 +69,7 @@
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                         Total Goods</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$total_goods}} KG</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-list-alt fa-2x text-gray-300"></i>
@@ -97,54 +95,34 @@
                         <div class="card-body">
                             <table class="table">
                                 <tbody>
-                                    <tr>
-                                        <td>Beli Beras, Tepung, Jagung, ubi</td>
-                                        <td> 
-                                            <a href="#" class="btn btn-success btn-circle btn-sm">
-                                                <i class="fas fa-check"></i>
-                                            </a>
-                                        </td>
-                                    </tr> 
-                                    <tr>
-                                        <form method="POST" action="#" enctype="multipart/form-data">
-                                            @csrf
-                                            <td> 
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="New Activity.."
-                                                    aria-label="Search" aria-describedby="basic-addon2">
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-success btn-circle btn-sm">
-                                                    <i class="fas fa-check"></i>
-                                                </a>
-                                            </td>
-                                        </form>
-                                    </tr>   
-
-
-                                    {{-- @foreach ($confirms as $con)
+                                    @foreach ($confirms as $con)
                                     <tr>
                                         <td>{{$con->confirm}}</td>
                                         <td> 
-                                            <a href="{{ route('confirm.destroy', $con->id) }}" class="btn btn-success btn-circle btn-sm">
+                                            <form method="POST" action="{{ route('confirm.destroy', $con->id) }}">
+                                                @csrf
+                                                @method('delete')
+                                            <button value="delete" type="submit" class="btn btn-success btn-circle btn-sm">
                                                 <i class="fas fa-check"></i>
-                                            </a>
+                                            </button>
+                                        </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                     <tr>
                                         <form method="POST" action="{{ route('confirm.store') }}" enctype="multipart/form-data">
                                             @csrf
                                             <td> 
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="New Activity.."
+                                                <input type="text" name="confirm" class="form-control bg-light border-0 small" placeholder="New Activity.."
                                                     aria-label="Search" aria-describedby="basic-addon2">
                                             </td>
                                             <td>
-                                                <a href="{{ route('confirm.create') }}" class="btn btn-success btn-circle btn-sm">
+                                                <button class="btn btn-success btn-circle btn-sm" type="submit">
                                                     <i class="fas fa-check"></i>
-                                                </a>
+                                            </button>
                                             </td>
                                         </form>
                                     </tr>
-                                    @endforeach --}}
                                 </tbody>
                             </table>
                         </div>

@@ -42,13 +42,27 @@
 
                     <div class="card-body container">
                         <!-- Form Create Product(s) -->
+
+                        <div class="align-items-center">
+                            <div class="form-group row">
+                                <label for="out_code" class="form-label font-weight-bold col-sm-2">
+                                    Product Code</label>
+                                <div class="col-sm-10">
+                                <select class="custom-select bg-light border-0 small" name="product_id" required>
+                                @foreach($expireds as $exp)
+                                  <option value='{ "id" : "{{$exp->id}}", "product_code" : "{{$exp->product_code}}" }'>{{$exp->product_code}}</option>
+                                @endforeach
+                                </select>
+                                </div>
+                              </div>
+                            </div>
                 
                             <div class="align-items-center">
                                 <div class="form-group row">
                                     <label for="productOut" class="form-label font-weight-bold col-sm-2">
                                         Product Expired</label>
                                         <div class="col-sm-10">
-                                                <input type="text" name="expired" class="form-control bg-light border-0 small">
+                                                <input type="text" name="expired" class="form-control bg-light border-0 small" required>
                                         </div>
                                   </div>
                             </div>
@@ -56,14 +70,21 @@
                                     <label for="price" class="form-label font-weight-bold col-sm-2">
                                         Price</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="price" class="form-control bg-light border-0 small">
+                                        <input type="text" name="price" class="form-control bg-light border-0 small" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="price" class="form-label font-weight-bold col-sm-2">
+                                        Quantity</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="quantity" class="form-control bg-light border-0 small" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="price" class="form-label font-weight-bold col-sm-2">
                                         Description</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="desc" class="form-control bg-light border-0 small">
+                                        <input type="text" name="desc" class="form-control bg-light border-0 small" required>
                                     </div>
                                 </div>
                             </div>

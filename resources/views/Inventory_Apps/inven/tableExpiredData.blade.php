@@ -41,6 +41,7 @@
                                     <th>Product Code</th>
                                     <th>Product Expired</th>
                                     <th>Price</th>
+                                    <th>Quantity</th>
                                     <th>Description</th>
                                     <th>Actions</th>
                                 </tr>
@@ -51,7 +52,7 @@
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>
                                             <div class="col g-3 mt-3">
-                                                <h6 class="font-weight-bold">{{ $prod->product_code }}</h6>
+                                                <h6 class="font-weight-bold">{{ $exp->product_code }}</h6>
                                             </div>
                                         </td>
                                         <td>
@@ -64,7 +65,12 @@
                                         </td>
                                         <td>
                                             <div class="col g-3 mt-3">
-                                                <h6 class="font-weight-bold">{{ $exp->price }}</h6>
+                                                <h6 class="font-weight-bold">Rp.{{ $exp->price }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col g-3 mt-3">
+                                                <h6 class="font-weight-bold">{{ $exp->quantity }} Pcs</h6>
                                             </div>
                                         </td>
                                         <td>
@@ -89,8 +95,10 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Product Code</th>
                                     <th>Product Expired</th>
                                     <th>Price</th>
+                                    <th>Quantity</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
@@ -98,6 +106,11 @@
                                 @foreach ($expireds as $exp)
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>
+                                            <div class="col g-3 mt-3">
+                                                <h6 class="font-weight-bold">{{ $exp->product_code }}</h6>
+                                            </div>
+                                        </td>
                                         <td>
                                             <div class="row profile">
                                     
@@ -109,6 +122,11 @@
                                         <td>
                                             <div class="col g-3 mt-3">
                                                 <h6 class="font-weight-bold">{{ $exp->price }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col g-3 mt-3">
+                                                <h6 class="font-weight-bold">{{ $exp->quantity }} Pcs</h6>
                                             </div>
                                         </td>
                                         <td>

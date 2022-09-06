@@ -17,13 +17,6 @@ class ProductController extends Controller
         return view('Inventory_Apps.inven.tableProductData', compact('products'));
     }
 
-    public function total($quantity)
-    {
-        $total_products = Product::count();
-        // $total_assets = Product::count($price);
-        return view('Inventory_Apps.website.dashboardInven', compact('total_products'));
-        //return view('Inventory_Apps.website.dashboardInven')->with('price',$total_assets);
-    }
 
     public function create()
     {

@@ -17,14 +17,6 @@ class ExpiredController extends Controller
         return view('Inventory_Apps.inven.tableExpiredData', compact('expireds'));
     }
 
-    // public function exportR_pdf()
-    // {
-    // 	$expireds = Expired::all();
-    //     view()->share('expireds', $expireds);
-    // 	$pdf = PDF::loadview('Inventory_Apps.inven.dataProduct',['expireds'=>$expireds]);           //('Inventory_Apps.inven.dataProduct', compact('outs'));                                   //('Inventory_Apps.inven.dataProduct',['product'=>$products]);
-    // 	return $pdf->download('dataExpired.pdf');
-    // }
-
     public function create()
     {
         $expireds = Product::all();
@@ -33,7 +25,36 @@ class ExpiredController extends Controller
 
     public function store(Request $request)
     {
-        $expireds = Expired::create($request->all());
+        // $expireds = Expired::create($request->all());
+
+        $rt = json_decode($request->product_id);
+        $product = Product::where('id', $rt->id)->first();
+
+        if ($request->quantity > $product->quantity) {
+            return redirect()->back();
+        } else {
+            $data = Expired::create([
+                'product_id'    => $rt->id,
+                'product_code'  => $rt->product_code,
+                'expired'        => $request->expired,
+                'price'         => $request->price,
+                'quantity'      => $request->quantity,
+                'desc'          => $request->desc,
+            ]);
+    
+    
+            $data->save();
+    
+           
+    
+            $product->update([
+                
+                'quantity'         => ($product->quantity - $request->quantity) 
+                
+            ]);
+        }
+
+
         return redirect('expired')->with('Success', 'Successful Data added!');
     }
 
@@ -54,12 +75,14 @@ class ExpiredController extends Controller
         $this->validate($request, [
             'expired'              => 'required',
             'price'          => 'required',
+            'quantity'          => 'required',
             'desc'              => 'required'
         ]);
         $expireds = Expired::findOrFail($id);
         $expireds->update([
             'expired'              => $request->expired,
             'price'          => $request->price,
+            'quantity'          => $request->quantity,
             'desc'              => $request->desc
         ]);
 

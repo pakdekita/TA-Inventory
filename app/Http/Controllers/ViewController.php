@@ -21,10 +21,10 @@ class ViewController extends Controller
         return view('HR_Apps.website.dashboard');
     }
 
-    public function Inven()
-    {
-        return view('Inventory_Apps.website.dashboardInven');
-    }
+    // public function Inven()
+    // {
+    //     return view('Inventory_Apps.website.dashboardInven');
+    // }
 
     public function profile()
     {

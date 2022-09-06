@@ -37,7 +37,7 @@ Route::get('/register', [ViewController::class, 'register']);
 
 // Website route
 Route::get('/dashboard', [ViewController::class, 'dashboard']);
-Route::get('/dashboardInven', [ViewController::class, 'Inven']);
+// Route::get('/dashboardInven', [ViewController::class, 'Inven']);
 Route::get('/myProfile', [ViewController::class, 'profile']);
 Route::get('/editProfile', [ViewController::class, 'editprofile']);
 
@@ -57,10 +57,8 @@ Route::resources([
     'confirm' => ConfirmController::class
 ]);
 
-// Route::resource('confirms', ConfirmController::class);
 
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'authenticate']);
+
 
 
 
