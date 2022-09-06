@@ -15,6 +15,7 @@ class CreateReturTable extends Migration
     {
         Schema::create('retur', function (Blueprint $table) {
             $table->id();
+            $table->string('product_code');
             $table->string('return');
             $table->integer('price');
             $table->date('date');

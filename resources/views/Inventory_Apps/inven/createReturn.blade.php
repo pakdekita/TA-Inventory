@@ -42,6 +42,20 @@
                     <div class="card-body container">
                         <!-- Form Create Product(s) -->
 
+                        
+                        <div class="align-items-center">
+                            <div class="form-group row">
+                                <label for="out_code" class="form-label font-weight-bold col-sm-2">
+                                    Product Code</label>
+                                <div class="col-sm-10">
+                                <select class="custom-select bg-light border-0 small" name="product_id">
+                                @foreach($returns as $rt)
+                                  <option value="{{$rt->id}}">{{$rt->product_code}}</option>
+                                @endforeach
+                                </select>
+                                </div>
+                              </div>
+                            </div>
                             <div class="align-items-center">
                                 <div class="form-group row">
                                     <label for="return" class="form-label font-weight-bold col-sm-2">

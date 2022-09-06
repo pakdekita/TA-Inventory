@@ -11,4 +11,13 @@ class Out extends Model
     protected $table = "Out";
     protected $guarded = [];
     public $timestamps = false;
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+
+
 }
+

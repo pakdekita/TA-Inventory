@@ -11,4 +11,10 @@ class Expired extends Model
     protected $table = "expired";
     protected $guarded = [];
     public $timestamps = false;
+
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

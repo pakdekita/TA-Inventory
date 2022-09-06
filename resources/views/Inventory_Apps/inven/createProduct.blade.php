@@ -42,6 +42,13 @@
                     <div class="card-body container">
                         <!-- Form Create Product(s) -->
 
+                        <div class="form-group row">
+                            <label for="product_code" class="form-label font-weight-bold col-sm-2">
+                                Product Code</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="product_code" class="form-control bg-light border-0 small">
+                            </div>
+                        </div>
                             <div class="align-items-center">
                                 <div class="form-group row">
                                     <label for="product" class="form-label font-weight-bold col-sm-2">
@@ -54,7 +61,14 @@
                                     <label for="price" class="form-label font-weight-bold col-sm-2">
                                         Price</label>
                                     <div class="col-sm-10">
-                                        <input type="number" name="price" class="form-control bg-light border-0 small" placeholder="Format: 25000">
+                                        <input type="number" name="price" class="form-control bg-light border-0 small" placeholder="Format: Rp.25000">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="quantity" class="form-label font-weight-bold col-sm-2">
+                                        Quantity</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" name="quantity" class="form-control bg-light border-0 small" placeholder="Format: 15 Pcs">
                                     </div>
                                 </div>
                                 <div class="form-group row">

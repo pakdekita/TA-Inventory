@@ -38,9 +38,11 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Product Code</th>
                                     <th>Product Out</th>
                                     <th>Customer</th>
                                     <th>Price</th>
+                                    <th>Quantity</th>
                                     <th>Description</th>
                                     <th>Send Date</th>
                                     <th>Actions</th>
@@ -50,6 +52,11 @@
                                 @foreach ($outs as $out)
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>
+                                            <div class="col g-3 mt-3">
+                                                <h6 class="font-weight-bold">{{ $out->product_code }}</h6>
+                                            </div>
+                                        </td>
                                         <td>
                                             <div class="row profile">
                                     
@@ -65,7 +72,12 @@
                                         </td>
                                         <td>
                                             <div class="col g-3 mt-3">
-                                                <h6 class="font-weight-bold">{{ $out->price }}</h6>
+                                                <h6 class="font-weight-bold">Rp.{{ $out->price }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col g-3 mt-3">
+                                                <h6 class="font-weight-bold">{{ $out->quantity }} Pcs</h6>
                                             </div>
                                         </td>
                                         <td>
@@ -95,9 +107,11 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Product Code</th>
                                     <th>Product Out</th>
                                     <th>Customer</th>
                                     <th>Price</th>
+                                    <th>Quantity</th>
                                     <th>Description</th>
                                     <th>Send Date</th>
                                 </tr>
@@ -106,6 +120,11 @@
                                 @foreach ($outs as $out)
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>
+                                            <div class="col g-3 mt-3">
+                                                <h6 class="font-weight-bold">{{ $out->product_code }}</h6>
+                                            </div>
+                                        </td>
                                         <td>
                                             <div class="row profile">
                                     
@@ -122,6 +141,11 @@
                                         <td>
                                             <div class="col g-3 mt-3">
                                                 <h6 class="font-weight-bold">{{ $out->price }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col g-3 mt-3">
+                                                <h6 class="font-weight-bold">{{ $out->quantity }} Pcs</h6>
                                             </div>
                                         </td>
                                         <td>

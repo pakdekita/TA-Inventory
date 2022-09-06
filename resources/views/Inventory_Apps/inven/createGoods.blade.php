@@ -41,7 +41,14 @@
 
                     <div class="card-body container">
                         <!-- Form Create Product(s) -->
-                        
+
+                        <div class="form-group row">
+                            <label for="product_code" class="form-label font-weight-bold col-sm-2">
+                                Supplier Code</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="supplier_code" class="form-control bg-light border-0 small">
+                            </div>
+                        </div>
                             <div class="align-items-center">
                                 <div class="form-group row">
                                     <label for="goods" class="form-label font-weight-bold col-sm-2">

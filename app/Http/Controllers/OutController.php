@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Out;
+use App\Models\Product;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\OutExport;
 
@@ -20,18 +21,23 @@ class OutController extends Controller
 
     public function create()
     {
-        return view('Inventory_Apps.inven.createOut');
+        $outs = Product::all();
+        return view('Inventory_Apps.inven.createOut', compact('outs'));
     }
+
+    
 
     public function store(Request $request)
     {
-        $this->validate($request,[
-            ''
-        ]);
-
+        
         $outs = Out::create($request->all());
-        return redirect('out')->with('Success', 'Successful Data added!');
+
+        
+
         $outs->save();
+        return redirect('out');
+        
+
     }
 
     public function show($id)
@@ -53,6 +59,7 @@ class OutController extends Controller
             'out'       => 'required',
             'customer'         => 'required',
             'price'         => 'required',
+            'quantity'         => 'required',
             'desc'         => 'required',
             'date'          => 'required',
         ]);
@@ -61,6 +68,7 @@ class OutController extends Controller
             'out'       => $request->out,
             'customer'         => $request->customer,
             'price'         => $request->price,
+            'quantity'         => $request->quantity,
             'desc'         => $request->desc,
             'date'          => $request->date
         ]);

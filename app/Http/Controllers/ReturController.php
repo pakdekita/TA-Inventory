@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Retur;
+use App\Models\Product;
 
 class ReturController extends Controller
 {
@@ -17,7 +18,8 @@ class ReturController extends Controller
 
     public function create()
     {
-        return view('Inventory_Apps.inven.createReturn');
+        $returns = Product::all();
+        return view('Inventory_Apps.inven.createReturn', compact('returns'));
     }
 
     public function store(Request $request)

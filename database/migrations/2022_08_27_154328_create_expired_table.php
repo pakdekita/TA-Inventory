@@ -15,6 +15,7 @@ class CreateExpiredTable extends Migration
     {
         Schema::create('expired', function (Blueprint $table) {
             $table->id();
+            $table->string('product_code');
             $table->string('expired');
             $table->integer('price');
             $table->text('desc');

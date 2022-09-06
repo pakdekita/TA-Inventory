@@ -31,6 +31,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Product Code</th>
                                     <th>Product Return</th>
                                     <th>Price</th>
                                     <th>Return Date</th>
@@ -42,6 +43,11 @@
                                 @foreach ($returns as $retur)
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>
+                                            <div class="col g-3 mt-3">
+                                                <h6 class="font-weight-bold">{{ $prod->product_code }}</h6>
+                                            </div>
+                                        </td>
                                         <td>
                                             <div class="row profile">
                                     

@@ -32,6 +32,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Goods</th>
+                                    <th>Supplier Code</th>
                                     <th>Supplier</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
@@ -49,6 +50,11 @@
                                                 <div class="col g-3 mt-3">
                                                     <h5 class="font-weight-bold">{{ $goo->good }}</h5>
                                                 </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col g-3 mt-3">
+                                                <h6 class="font-weight-bold">{{ $goo->supplier_code }}</h6>
                                             </div>
                                         </td>
                                         <td>

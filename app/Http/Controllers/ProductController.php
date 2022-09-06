@@ -17,11 +17,11 @@ class ProductController extends Controller
         return view('Inventory_Apps.inven.tableProductData', compact('products'));
     }
 
-    public function total($price)
+    public function total($quantity)
     {
         $total_products = Product::count();
-        $total_assets = Product::count($price);
-        return view('Inventory_Apps.website.dashboardInven', compact('total_products','total_assets'));
+        // $total_assets = Product::count($price);
+        return view('Inventory_Apps.website.dashboardInven', compact('total_products'));
         //return view('Inventory_Apps.website.dashboardInven')->with('price',$total_assets);
     }
 
@@ -55,12 +55,14 @@ class ProductController extends Controller
         $this->validate($request, [
             'product'       => 'required',
             'price'         => 'required',
+            'quantity'         => 'required',
             'desc'          => 'required',
         ]);
         $products = Product::findOrFail($id);
         $products->update([
             'product'       => $request->product,
             'price'         => $request->price,
+            'quantity'      => $request->quantity,
             'desc'          => $request->desc
         ]);
 

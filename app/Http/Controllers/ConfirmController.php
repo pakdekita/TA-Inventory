@@ -11,7 +11,7 @@ class ConfirmController extends Controller
 {
     public function index()
     {
-        $confirm = Confirm::all();
+        $confirms = Confirm::all();
         return view('Inventory_Apps.website.dashboardInven', compact('confirm'));
     }
 

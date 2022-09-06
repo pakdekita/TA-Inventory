@@ -13,11 +13,14 @@ class CreateOutsTable extends Migration
      */
     public function up()
     {
-        Schema::create('outs', function (Blueprint $table) {
+        Schema::create('out', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('product_id');
+            $table->string('product_code');
             $table->string('out');
             $table->string('customer');
             $table->integer('price');
+            $table->integer('quantity');
             $table->text('desc');
             $table->date('date');
             $table->timestamps();
@@ -31,6 +34,6 @@ class CreateOutsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('outs');
+        Schema::dropIfExists('out');
     }
 }

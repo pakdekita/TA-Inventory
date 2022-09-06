@@ -16,6 +16,7 @@ class Goods extends Migration
     {
         Schema::create('goods', function (Blueprint $table) {
             $table->id();
+            $table->string('supplier_code');
             $table->string('good');
             $table->string('supplier');
             $table->integer('price');

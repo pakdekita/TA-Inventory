@@ -61,6 +61,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label for="quantity" class="form-label font-weight-bold col-sm-2">
+                                        Quantity</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" name="quantity" class="form-control bg-light border-0 small" value="{{ $products->quantity }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label for="date" class="form-label font-weight-bold col-sm-2">
                                         Expired Date</label>
                                     <div class="col-sm-10">

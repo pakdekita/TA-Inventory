@@ -11,4 +11,10 @@ class Retur extends Model
     protected $table = "retur";
     protected $guarded = [];
     public $timestamps = false;
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
 }

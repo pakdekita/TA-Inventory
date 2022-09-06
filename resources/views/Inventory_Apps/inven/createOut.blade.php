@@ -24,7 +24,7 @@
                         <h6 class="m-0 font-weight-bold text-primary mt-2">Add Data Product Out</h6>
                         <div class="row float-right">
                             <div class="my-2"></div>
-                            <button href="{{ route('out.store') }}" class="btn btn-success mr-2 shadow-sm" type="submit">
+                            <button class="btn btn-success mr-2 shadow-sm" type="submit">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-check"></i>
                                 </span>
@@ -42,7 +42,21 @@
 
                     <div class="card-body container">
                         <!-- Form Create Product(s) -->
-                
+
+                        <div class="align-items-center">
+                            <div class="form-group row">
+                                <label for="out_code" class="form-label font-weight-bold col-sm-2">
+                                    Product Code</label>
+                                <div class="col-sm-10">
+                                <select class="custom-select bg-light border-0 small" name="product_id">
+                                    <option>Select product code</option>
+                                @foreach($outs as $ot)
+                                  <option value="{{$ot->id}}">{{$ot->product_code}}</option>
+                                @endforeach
+                                </select>
+                                </div>
+                              </div>
+                            </div>
                             <div class="align-items-center">
                                 <div class="form-group row">
                                     <label for="productOut" class="form-label font-weight-bold col-sm-2">
@@ -64,6 +78,13 @@
                                         Price</label>
                                     <div class="col-sm-10">
                                         <input type="text" name="price" class="form-control bg-light border-0 small">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="price" class="form-label font-weight-bold col-sm-2">
+                                        Quantity</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="quantity" class="form-control bg-light border-0 small">
                                     </div>
                                 </div>
                                 <div class="form-group row">

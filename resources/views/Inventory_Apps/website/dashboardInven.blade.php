@@ -43,15 +43,17 @@
                     <div class="card border-left-info shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
+                                @foreach ($total_products)
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                     Total Assets</div>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
-                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Rp. 500000</div>
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$total_products}}</div>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                                 <div class="col-auto">
                                     <i class="fas fa-regular fa-dollar-sign fa-2x text-gray-300"></i>
                                 </div>
@@ -119,7 +121,7 @@
                                     </tr>   
 
 
-                                    {{-- @foreach ($confirm as $con)
+                                    {{-- @foreach ($confirms as $con)
                                     <tr>
                                         <td>{{$con->confirm}}</td>
                                         <td> 
@@ -129,7 +131,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <form method="POST" action="#" enctype="multipart/form-data">
+                                        <form method="POST" action="{{ route('confirm.store') }}" enctype="multipart/form-data">
                                             @csrf
                                             <td> 
                                                 <input type="text" class="form-control bg-light border-0 small" placeholder="New Activity.."

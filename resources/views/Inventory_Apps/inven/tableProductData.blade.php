@@ -31,8 +31,10 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Product Code</th>
                                     <th>Product</th>
                                     <th>Price</th>
+                                    <th>Quantity</th>
                                     <th>Expired Date</th>
                                     <th>Description</th>
                                     <th>Actions</th>
@@ -43,6 +45,11 @@
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>
+                                            <div class="col g-3 mt-3">
+                                                <h6 class="font-weight-bold">{{ $prod->product_code }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
                                             <div class="row profile">
                                     
                                                 <div class="col g-3 mt-3">
@@ -50,9 +57,15 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        
                                         <td>
                                             <div class="col g-3 mt-3">
                                                 <h6 class="font-weight-bold"> Rp.{{ $prod->price }}</h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col g-3 mt-3">
+                                                <h6 class="font-weight-bold">{{ $prod->quantity }} Pcs</h6>
                                             </div>
                                         </td>
                                         <td>

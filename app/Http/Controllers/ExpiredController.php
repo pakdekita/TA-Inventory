@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Expired;
+use App\Models\Product;
 use PDF;
 
 class ExpiredController extends Controller
@@ -16,17 +17,18 @@ class ExpiredController extends Controller
         return view('Inventory_Apps.inven.tableExpiredData', compact('expireds'));
     }
 
-    public function exportR_pdf()
-    {
-    	$expireds = Expired::all();
-        view()->share('expireds', $expireds);
-    	$pdf = PDF::loadview('Inventory_Apps.inven.dataProduct',['expireds'=>$expireds]);           //('Inventory_Apps.inven.dataProduct', compact('outs'));                                   //('Inventory_Apps.inven.dataProduct',['product'=>$products]);
-    	return $pdf->download('dataExpired.pdf');
-    }
+    // public function exportR_pdf()
+    // {
+    // 	$expireds = Expired::all();
+    //     view()->share('expireds', $expireds);
+    // 	$pdf = PDF::loadview('Inventory_Apps.inven.dataProduct',['expireds'=>$expireds]);           //('Inventory_Apps.inven.dataProduct', compact('outs'));                                   //('Inventory_Apps.inven.dataProduct',['product'=>$products]);
+    // 	return $pdf->download('dataExpired.pdf');
+    // }
 
     public function create()
     {
-        return view('Inventory_Apps.inven.createExpired');
+        $expireds = Product::all();
+        return view('Inventory_Apps.inven.createExpired', compact('expireds'));
     }
 
     public function store(Request $request)

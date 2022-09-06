@@ -57,6 +57,8 @@ Route::resources([
     'confirm' => ConfirmController::class
 ]);
 
+// Route::resource('confirms', ConfirmController::class);
+
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 
