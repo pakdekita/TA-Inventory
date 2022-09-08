@@ -59,7 +59,9 @@ Route::resources([
 
 
 
-
+Route::get('/orderReport', function () {
+    return view('Inventory_Apps.inven.orderReport');
+});
 
 
 

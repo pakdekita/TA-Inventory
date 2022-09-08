@@ -87,7 +87,7 @@
 
             <!-- Nav Item - HR Letter -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ url('/orderReport') }}">
                     <i class="fas fa-fw fa-envelope"></i>
                     <span>Order Report</span></a>
             </li>
